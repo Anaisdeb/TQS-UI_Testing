@@ -4,6 +4,12 @@
 
   * Anaïs Débureaux
   * Yufeng Yang
+
+## Objectives
+
+  * Perform UI testing, therefore Black‐Box testing, with the BDD methodology, on this reservation application: [PHPTRAVELS](https://phptravels.com/demo).
+  * Automate the different actions carried out on the web using Selenium Web Driver.
+  * Define the test cases using the Gherkin language and the Cucumber framework for Java.
  
  ## 7 parts
 
