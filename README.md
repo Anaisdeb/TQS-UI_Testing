@@ -13,7 +13,7 @@
  
  ## 7 parts
 
-  1. Login / Logout (examples : Customer Agents, Supplier)
+  1. Login - 6 scenarios (done)
   2. Research functionality (flights, ...) / recent searches
   3. Buy (examples : flight, tours, transfers)
   4. Header part (Change the currency, ...)
