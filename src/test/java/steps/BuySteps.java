@@ -1,6 +1,7 @@
 package steps;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -19,14 +21,16 @@ import io.cucumber.java.en.When;
 public class BuySteps {
 	
 	WebDriver driver;
+	JavascriptExecutor executor;
 	
-	@Given("the user is on the application landing page")
-	public void theUserIsOnTheApplicationLandingPage() 
+	@Given("the user is on the application index page")
+	public void theUserIsOnTheApplicationIndexPage() 
 	{	
 		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.navigate().to("https://phptravels.net/");
+		executor = (JavascriptExecutor)driver;
 	}
 	
 	@When("the user clicks the cookie")
@@ -76,21 +80,21 @@ public class BuySteps {
 	
 	@When("the user confirm the Booking")
 	public void theUserConfirmTheBooking() {
-		//driver.findElement(By.xpath("//*[@id=\"myTab\"]/label/label/label/label/label/div/div/div[2]//*[@id=\"myTab\"]/label/label/label/label/label/div/div/div[2]")).sendKeys(Keys.RETURN);
-		WebElement element = driver.findElement(By.id("agreechb"));
-		Actions actions = new Actions(driver);
-		actions.moveToElement(element).click().build().perform();
-		//driver.findElement(By.id("agreechb")).click();
+		executor.executeScript("arguments[0].click()",driver.findElement(By.xpath("//*[@id=\"myTab\"]/label/label/label/label/label")));
+		executor.executeScript("arguments[0].click()", driver.findElement(By.cssSelector("label[for='agreechb']")));
+		executor.executeScript("arguments[0].click()", driver.findElement(By.id("booking")));
 	}
 	
 	@Then("the booking status is pending")
-	public void theBookingStausIsPending() {
-		
+	public void theBookingStausIsPending() throws InterruptedException {
+		String content = driver.findElement(By.tagName("body")).getText();
+		System.out.printf("Content " + content);
+		Assert.assertTrue(content.contains("Request Cancellation"));
 	}
 	
 	@After
     public void closeTheBrowser() {
 		 //driver.close();
-		 //driver.quit();
+		 driver.quit();
     }
 }
