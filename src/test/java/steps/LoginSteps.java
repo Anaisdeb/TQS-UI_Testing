@@ -46,7 +46,7 @@ public class LoginSteps {
 		driver.findElement(By.cssSelector("input[name='password']")).sendKeys(password);
 	}
 	
-	@When("^the user clicks the login button")
+	@When("the user clicks the login button")
 	public void theUserClicksTheLoginButton()
 	{
 		driver.findElement(By.cssSelector("button[type='submit']")).click();
