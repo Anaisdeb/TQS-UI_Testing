@@ -87,8 +87,7 @@ public class BuySteps {
 	
 	@Then("the booking status is pending")
 	public void theBookingStausIsPending() throws InterruptedException {
-		String content = driver.findElement(By.tagName("body")).getText();
-		System.out.printf("Content " + content);
+		String content = driver.findElement(By.xpath("//*[@id=\"fadein\"]/section/div/div/div/div/div[2]/div[3]/strong/div[2]/div/div[1]/form/input[3]")).getAttribute("value");
 		Assert.assertTrue(content.contains("Request Cancellation"));
 	}
 	
