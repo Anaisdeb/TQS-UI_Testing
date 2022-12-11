@@ -17,6 +17,6 @@
   2. Research flights - 4 scenarios (done)
   3. Buy (examples : flight, tours, transfers)
   4. Header part (Change the currency, ...)
-  5. Edit the profile
+  5. Edit profile - 7 scenarios (done)
   6. Request cancellation
   7. Admin functionalities (Add / delete Locations then export CSV and compare the file, change design)
