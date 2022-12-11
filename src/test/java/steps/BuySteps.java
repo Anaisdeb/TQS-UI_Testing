@@ -62,8 +62,8 @@ public class BuySteps {
 		
 	}
 	
-	@When("^the user enters the travellers information (.*), (.*), (.*)")
-	public void theUserEntersTheTravellersInformation(String FirstName, String LastName, String Passport) {
+	@When("^the user enters the traveller information (.*), (.*), (.*)")
+	public void theUserEntersTheTravellerInformation(String FirstName, String LastName, String Passport) {
 		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div/div[2]/div[1]/div[1]/select/option[2]")).click();
 		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div/div[2]/div[2]/div[1]/select/option[210]")).click();
 		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/select/option[13]")).click();
@@ -85,15 +85,47 @@ public class BuySteps {
 		executor.executeScript("arguments[0].click()", driver.findElement(By.id("booking")));
 	}
 	
-	@Then("the booking status is pending")
-	public void theBookingStausIsPending() throws InterruptedException {
+	@Then("the fly booking status is pending")
+	public void theFlyBookingStausIsPending() throws InterruptedException {
 		String content = driver.findElement(By.xpath("//*[@id=\"fadein\"]/section/div/div/div/div/div[2]/div[3]/strong/div[2]/div/div[1]/form/input[3]")).getAttribute("value");
 		Assert.assertTrue(content.contains("Request Cancellation"));
 	}
 	
+	@When("the user clicks the hotel")
+	public void theUserClicksTheHotel() {
+		driver.findElement(By.xpath("//*[@id=\"fadein\"]/section[3]/div/div/div[2]/div/div/div/div[1]/div/div[6]/div/div[2]/h6/a")).sendKeys(Keys.RETURN);
+	}
+	
+	@When("the user clicks the first option")
+	public void theUserClicksTheFirstOption() {
+		driver.findElement(By.xpath("//*[@id=\"availability\"]/div[2]/div/div[2]/div/div[2]/form/div/div[5]/div/button")).sendKeys(Keys.RETURN);
+	}
+	
+	@When("^the user enters the travellers information (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*)")
+	public void theUserEntersTheTravellerInformation(String FirstName, String LastName, String FirstName1, String LastName1, String FirstName2, String LastName2, String FirstName3, String LastName3) {
+		driver.findElement(By.cssSelector("input[name='firstname_2']")).sendKeys(FirstName);
+		driver.findElement(By.cssSelector("input[name='lastname_2']")).sendKeys(LastName);
+		driver.findElement(By.cssSelector("input[name='child_firstname_1']")).sendKeys(FirstName1);
+		driver.findElement(By.cssSelector("input[name='child_lastname_1']")).sendKeys(LastName1);
+		driver.findElement(By.cssSelector("input[name='child_firstname_2']")).sendKeys(FirstName2);
+		driver.findElement(By.cssSelector("input[name='child_lastname_2']")).sendKeys(LastName2);
+		driver.findElement(By.cssSelector("input[name='firstname_1']")).sendKeys(FirstName3);
+		driver.findElement(By.cssSelector("input[name='lastname_1']")).sendKeys(LastName3);
+		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div[1]/div[2]/div/div[1]/select/option[2]")).click();
+		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div[3]/div[2]/div/div[1]/select/option[12]")).click();
+		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div[4]/div[2]/div/div[1]/select/option[6]")).click();
+	}
+	
+	@Then("the hotel booking status is pending")
+	public void theHotelBookingStausIsPending() throws InterruptedException {
+		String content = driver.findElement(By.xpath("//*[@id=\"fadein\"]/section[1]/div/div/div/div/div[2]/div[3]/div[3]/div/div[1]/form/input[3]")).getAttribute("value");
+		Assert.assertTrue(content.contains("Request Cancellation"));
+	}
+	
+	
 	@After
     public void closeTheBrowser() {
 		 //driver.close();
-		 driver.quit();
+		 //driver.quit();
     }
 }
