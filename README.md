@@ -14,7 +14,7 @@
  ## 7 parts
 
   1. Login - 6 scenarios (done)
-  2. Research functionality (flights, ...) / recent searches
+  2. Research flights - 4 scenarios (done)
   3. Buy (examples : flight, tours, transfers)
   4. Header part (Change the currency, ...)
   5. Edit the profile
