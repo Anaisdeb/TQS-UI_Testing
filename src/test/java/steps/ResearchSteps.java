@@ -1,21 +1,13 @@
 package steps;
 
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,6 +15,7 @@ import io.cucumber.java.en.When;
 public class ResearchSteps {
 
 	WebDriver driver;
+	JavascriptExecutor executor;
 	
 	@Given("the user is on the application research page")
 	public void theUserIsOnTheApplicationResearchPage() 
@@ -31,6 +24,10 @@ public class ResearchSteps {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.navigate().to("https://phptravels.net");
+		
+//		Executor used to fix "WebDriverException: Element is not clickable at point (x, y)"
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		
 		driver.findElement(By.id("cookie_stop")).click();
 	}
 	
@@ -42,10 +39,7 @@ public class ResearchSteps {
 	
 	@When("^the user enters the (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*) fields")
 	public void theUserEntersTheField(String way, String type, String from, String to, String departure, String back, String adults, String childs, String infants)
-	{
-//		Executor used to fix "WebDriverException: Element is not clickable at point (x, y)"
-		JavascriptExecutor executor = (JavascriptExecutor)driver;
-		
+	{	
 		driver.findElement(By.id(way)).click();
 		Select flightType = new Select (driver.findElement(By.id("flight_type")));
 		flightType.selectByVisibleText(type);
