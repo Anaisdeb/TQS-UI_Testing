@@ -15,7 +15,7 @@
 
   1. Login - 6 scenarios (done)
   2. Research flights - 4 scenarios (done)
-  3. Buy (examples : flight, tours, transfers)
+  3. Buy - 3 scenarios (done)
   4. Header part (Change the currency, ...)
   5. Edit profile - 7 scenarios (done)
   6. Request cancellation
