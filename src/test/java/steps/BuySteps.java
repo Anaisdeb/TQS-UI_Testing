@@ -102,7 +102,7 @@ public class BuySteps {
 	}
 	
 	@When("^the user enters the travellers information (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*)")
-	public void theUserEntersTheTravellerInformation(String FirstName, String LastName, String FirstName1, String LastName1, String FirstName2, String LastName2, String FirstName3, String LastName3) {
+	public void theUserEntersTheTravellersInformation(String FirstName, String LastName, String FirstName1, String LastName1, String FirstName2, String LastName2, String FirstName3, String LastName3) {
 		driver.findElement(By.cssSelector("input[name='firstname_2']")).sendKeys(FirstName);
 		driver.findElement(By.cssSelector("input[name='lastname_2']")).sendKeys(LastName);
 		driver.findElement(By.cssSelector("input[name='child_firstname_1']")).sendKeys(FirstName1);
@@ -122,6 +122,36 @@ public class BuySteps {
 		Assert.assertTrue(content.contains("Request Cancellation"));
 	}
 	
+	@When("the user clicks the tour")
+	public void theUserClicksTheTour() {
+		driver.findElement(By.xpath("//*[@id=\"fadein\"]/section[4]/div/div/div[2]/div[1]/div/div[1]/a[1]")).sendKeys(Keys.RETURN);
+	}
+	
+	@When("the user enters the tour participants")
+	public void theUserEntersTheTourParticipants() {
+		driver.findElement(By.xpath("//*[@id=\"adults\"]/option[2]")).click();
+		driver.findElement(By.xpath("//*[@id=\"childs\"]/option[3]")).click();
+		driver.findElement(By.xpath("//*[@id=\"fadein\"]/section[2]/div[2]/div/div/div[2]/div/div/div/form/div[3]/button")).sendKeys(Keys.RETURN);
+	}
+	
+	@When("^the user enters the tour travellers information (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*)")
+	public void theUserEntersTheTourTravellerInformation(String FirstName, String LastName, String FirstName1, String LastName1, String FirstName2, String LastName2, String FirstName3, String LastName3) {
+		driver.findElement(By.cssSelector("input[name='firstname_2']")).sendKeys(FirstName);
+		driver.findElement(By.cssSelector("input[name='lastname_2']")).sendKeys(LastName);
+		driver.findElement(By.cssSelector("input[name='firstname_3']")).sendKeys(FirstName1);
+		driver.findElement(By.cssSelector("input[name='lastname_3']")).sendKeys(LastName1);
+		driver.findElement(By.cssSelector("input[name='firstname_4']")).sendKeys(FirstName2);
+		driver.findElement(By.cssSelector("input[name='lastname_4']")).sendKeys(LastName2);
+		driver.findElement(By.cssSelector("input[name='firstname_1']")).sendKeys(FirstName3);
+		driver.findElement(By.cssSelector("input[name='lastname_1']")).sendKeys(LastName3);
+		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div[1]/div[2]/div/div[1]/select/option[2]")).click();
+	}
+	
+	@Then("the tour booking status is pending")
+	public void theTourBookingStausIsPending() throws InterruptedException {
+		String content = driver.findElement(By.xpath("//*[@id=\"fadein\"]/section[1]/div/div/div/div/div[2]/div[3]/div[3]/div/div[1]/form/input[3]")).getAttribute("value");
+		Assert.assertTrue(content.contains("Request Cancellation"));
+	}
 	
 	@After
     public void closeTheBrowser() {
