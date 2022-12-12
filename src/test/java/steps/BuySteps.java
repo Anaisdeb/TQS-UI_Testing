@@ -33,18 +33,18 @@ public class BuySteps {
 		executor = (JavascriptExecutor)driver;
 	}
 	
-	@When("the user clicks the cookie")
-	public void theUserClicksTheCookie() {
+	@When("the user click the cookie")
+	public void theUserClickTheCookie() {
 		driver.findElement(By.id("cookie_stop")).click();
 	}
-	@When("the user clicks the fly destination")
-	public void theUserClicksTheFlyDestination() throws InterruptedException
+	@When("^the user clicks the (.*)")
+	public void theUserClicksTheFlyDestination(String Offers) throws InterruptedException
 	{
-		driver.findElement(By.xpath("//*[@id=\"new-york\"]/div/div[2]/a")).sendKeys(Keys.RETURN);
+		driver.findElement(By.xpath(Offers)).sendKeys(Keys.RETURN);
 	}
 	
-	@When("the user clicks the first fly")
-	public void theUserClicksTheFirstFly() {
+	@When("the user click the first fly")
+	public void theUserClickTheFirstFly() {
 		driver.findElement(By.xpath("//*[@id=\"data\"]/ul/li[1]/div/form/div/div[2]/div/button")).sendKeys(Keys.RETURN);
 	}
 	
@@ -85,19 +85,14 @@ public class BuySteps {
 		executor.executeScript("arguments[0].click()", driver.findElement(By.id("booking")));
 	}
 	
-	@Then("the fly booking status is pending")
-	public void theFlyBookingStausIsPending() throws InterruptedException {
-		String content = driver.findElement(By.xpath("//*[@id=\"fadein\"]/section/div/div/div/div/div[2]/div[3]/strong/div[2]/div/div[1]/form/input[3]")).getAttribute("value");
+	@Then("^the booking status is (.*)")
+	public void theBookingStausIsPending(String Pending) throws InterruptedException {
+		String content = driver.findElement(By.xpath(Pending)).getAttribute("value");
 		Assert.assertTrue(content.contains("Request Cancellation"));
 	}
 	
-	@When("the user clicks the hotel")
-	public void theUserClicksTheHotel() {
-		driver.findElement(By.xpath("//*[@id=\"fadein\"]/section[3]/div/div/div[2]/div/div/div/div[1]/div/div[6]/div/div[2]/h6/a")).sendKeys(Keys.RETURN);
-	}
-	
-	@When("the user clicks the first option")
-	public void theUserClicksTheFirstOption() {
+	@When("the user click the first option")
+	public void theUserClickTheFirstOption() {
 		driver.findElement(By.xpath("//*[@id=\"availability\"]/div[2]/div/div[2]/div/div[2]/form/div/div[5]/div/button")).sendKeys(Keys.RETURN);
 	}
 	
@@ -114,17 +109,6 @@ public class BuySteps {
 		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div[1]/div[2]/div/div[1]/select/option[2]")).click();
 		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div[3]/div[2]/div/div[1]/select/option[12]")).click();
 		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div[4]/div[2]/div/div[1]/select/option[6]")).click();
-	}
-	
-	@Then("the hotel booking status is pending")
-	public void theHotelBookingStausIsPending() throws InterruptedException {
-		String content = driver.findElement(By.xpath("//*[@id=\"fadein\"]/section[1]/div/div/div/div/div[2]/div[3]/div[3]/div/div[1]/form/input[3]")).getAttribute("value");
-		Assert.assertTrue(content.contains("Request Cancellation"));
-	}
-	
-	@When("the user clicks the tour")
-	public void theUserClicksTheTour() {
-		driver.findElement(By.xpath("//*[@id=\"fadein\"]/section[4]/div/div/div[2]/div[1]/div/div[1]/a[1]")).sendKeys(Keys.RETURN);
 	}
 	
 	@When("the user enters the tour participants")
@@ -147,11 +131,6 @@ public class BuySteps {
 		driver.findElement(By.xpath("//*[@id=\"fadein\"]/div[5]/form/section/div/div/div[1]/div[2]/div[2]/div[1]/div[2]/div/div[1]/select/option[2]")).click();
 	}
 	
-	@Then("the tour booking status is pending")
-	public void theTourBookingStausIsPending() throws InterruptedException {
-		String content = driver.findElement(By.xpath("//*[@id=\"fadein\"]/section[1]/div/div/div/div/div[2]/div[3]/div[3]/div/div[1]/form/input[3]")).getAttribute("value");
-		Assert.assertTrue(content.contains("Request Cancellation"));
-	}
 	
 	@After
     public void closeTheBrowser() {
