@@ -27,20 +27,20 @@ public class HeaderSteps {
 		executor = (JavascriptExecutor)driver;
 	}
 	
-	@When("the user click the currency")
-	public void theUserClickTheCurrency() {
-		driver.findElement(By.id("currency")).click();
+	@When("^the user click the (.*)")
+	public void theUserClickTheCurrency(String Button) {
+		driver.findElement(By.id(Button)).click();
 	}
 	
 	@When("^the user change the (.*)")
-	public void theUserChangeTheCurrency(String Currency) {
-		driver.findElement(By.partialLinkText(Currency)).click();
+	public void theUserChangeTheMenu(String Menu) {
+		driver.findElement(By.partialLinkText(Menu)).click();
 	}
 	
-	@Then("^the price is in the right (.*)")
-	public void thePriceIsInTheRightCurrency(String Currency) {
+	@Then("^the page is in the right (.*)")
+	public void thePageIsInTheRightMenu(String Menu) {
 		String content = driver.findElement(By.tagName("body")).getText();
-		Assert.assertTrue(content.contains(Currency));
+		Assert.assertTrue(content.contains(Menu));
 	}
 	
 	@After
