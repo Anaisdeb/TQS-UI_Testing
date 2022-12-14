@@ -37,8 +37,8 @@ public class BuySteps {
 		driver.findElement(By.xpath(Offers)).sendKeys(Keys.RETURN);
 	}
 	
-	@When("the user click the first fly")
-	public void theUserClickTheFirstFly() {
+	@When("the user click the fly hour")
+	public void theUserClickTheFlyHour() {
 		driver.findElement(By.xpath("//*[@id=\"data\"]/ul/li[1]/div/form/div/div[2]/div/button")).sendKeys(Keys.RETURN);
 	}
 	
@@ -85,8 +85,8 @@ public class BuySteps {
 		Assert.assertTrue(content.contains("Request Cancellation"));
 	}
 	
-	@When("the user click the first option")
-	public void theUserClickTheFirstOption() {
+	@When("the user click the first hotel option")
+	public void theUserClickTheFirstHotelOption() {
 		driver.findElement(By.xpath("//*[@id=\"availability\"]/div[2]/div/div[2]/div/div[2]/form/div/div[5]/div/button")).sendKeys(Keys.RETURN);
 	}
 	

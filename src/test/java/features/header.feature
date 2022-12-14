@@ -2,7 +2,7 @@ Feature: Header
 
 Scenario: Change the currency
 Given the user is on the main page
-When the user click the <Currency_Button>
+When the user click the <Currency_Button> dropdown
 And the user change the <Currency>
 Then the page is in the right <Currency>
 
@@ -11,12 +11,12 @@ Examples:
 |EUR     |currency       |
 |RUB     |currency       |
 |TRY     |currency       |
-|GBP     |currency       |
+|PKR     |currency       |
 |JPY     |currency       |
 
 Scenario: Change the language
 Given the user is on the main page
-When the user click the <Language_Button>
+When the user click the <Language_Button> dropdown
 And the user change the <Language>
 Then the page is in the right <lan>
 

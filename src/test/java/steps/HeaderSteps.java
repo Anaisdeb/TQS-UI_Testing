@@ -27,8 +27,8 @@ public class HeaderSteps {
 		executor = (JavascriptExecutor)driver;
 	}
 	
-	@When("^the user click the (.*)")
-	public void theUserClickTheCurrency(String Button) {
+	@When("^the user click the (.*) dropdown")
+	public void theUserClickTheButtonDropdown(String Button) {
 		driver.findElement(By.id(Button)).click();
 	}
 	
@@ -46,6 +46,6 @@ public class HeaderSteps {
 	@After
     public void closeTheBrowser() {
 		 //driver.close();
-		 //driver.quit();
+		 driver.quit();
     }
 }

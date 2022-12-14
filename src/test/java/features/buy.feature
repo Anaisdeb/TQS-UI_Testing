@@ -5,7 +5,7 @@ Scenario: Buy a Fly
 Given the user is on the application index page
 When the user click cookie button
 And the user clicks the <Offers>
-And the user click the first fly
+And the user click the fly hour
 And the user enters the personal information <FirstName>, <LastName>, <Email>, <Phone>, <Address>
 And the user enters the traveller information <FirstName1>, <LastName1>, <Passport>
 And the user confirm the Booking
@@ -20,7 +20,7 @@ Scenario: Buy a Hotel
 Given the user is on the application index page
 When the user click cookie button
 And the user clicks the <Offers>
-And the user click the first option
+And the user click the first hotel option
 And the user enters the personal information <FirstName>, <LastName>, <Email>, <Phone>, <Address>
 And the user enters the travellers information <FirstName1>, <LastName1>, <FirstName2>, <LastName2>, <FirstName3>, <LastName3>, <FirstName4>, <LastName4>
 And the user confirm the Booking
