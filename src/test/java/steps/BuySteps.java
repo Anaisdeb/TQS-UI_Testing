@@ -27,8 +27,8 @@ public class BuySteps {
 		executor = (JavascriptExecutor)driver;
 	}
 	
-	@When("the user click the cookie")
-	public void theUserClickTheCookie() {
+	@When("the user click cookie button")
+	public void theUserClickCookieButton() {
 		driver.findElement(By.id("cookie_stop")).click();
 	}
 	@When("^the user clicks the (.*)")

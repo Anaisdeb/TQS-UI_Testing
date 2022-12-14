@@ -46,6 +46,6 @@ public class HeaderSteps {
 	@After
     public void closeTheBrowser() {
 		 //driver.close();
-		 driver.quit();
+		 //driver.quit();
     }
 }
