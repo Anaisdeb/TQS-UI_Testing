@@ -28,8 +28,8 @@ public class ProfileSteps {
 		executor = (JavascriptExecutor)driver;
 		
 		executor.executeScript("arguments[0].click();", driver.findElement(By.id("cookie_stop")));
-		driver.findElement(By.cssSelector("input[name='email']")).sendKeys("user@phptravels.com");
-		driver.findElement(By.cssSelector("input[name='password']")).sendKeys("demouser");
+		driver.findElement(By.cssSelector("input[name='email']")).sendKeys("agent@phptravels.com");
+		driver.findElement(By.cssSelector("input[name='password']")).sendKeys("demoagent");
 		driver.findElement(By.cssSelector("button[type='submit']")).click();
 	}
 	

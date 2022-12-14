@@ -26,7 +26,7 @@ public class ResearchSteps {
 		driver.navigate().to("https://phptravels.net");
 		
 //		Executor used to fix "WebDriverException: Element is not clickable at point (x, y)"
-		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor = (JavascriptExecutor)driver;
 		
 		driver.findElement(By.id("cookie_stop")).click();
 	}

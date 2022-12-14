@@ -31,8 +31,8 @@ public class BuySteps {
 	public void theUserClickCookieButton() {
 		driver.findElement(By.id("cookie_stop")).click();
 	}
-	@When("^the user clicks the (.*)")
-	public void theUserClicksTheOffers(String Offers) throws InterruptedException
+	@When("^the user clicks the offer (.*)")
+	public void theUserClicksTheOffer(String Offers) throws InterruptedException
 	{
 		driver.findElement(By.xpath(Offers)).sendKeys(Keys.RETURN);
 	}
