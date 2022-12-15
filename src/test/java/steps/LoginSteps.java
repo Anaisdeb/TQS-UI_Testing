@@ -1,5 +1,7 @@
 package steps;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,6 +21,7 @@ public class LoginSteps {
 	{	
 		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
+		driver.manage().window().maximize();
 		driver.navigate().to("https://phptravels.net");
 	}
 	
@@ -42,6 +45,7 @@ public class LoginSteps {
 	@When("^the user enters valid (.*) and valid (.*)")
 	public void theUserEntersValidAndValid(String email, String password)
 	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 		driver.findElement(By.cssSelector("input[name='email']")).sendKeys(email);
 		driver.findElement(By.cssSelector("input[name='password']")).sendKeys(password);
 	}
