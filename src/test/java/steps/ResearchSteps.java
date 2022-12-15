@@ -1,5 +1,7 @@
 package steps;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -61,6 +63,7 @@ public class ResearchSteps {
 			
 //		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#onereturn > div.col-lg-2 > div > div > div > div > div.dropdown-item.adult_qty > div > div > div.qtyInc")));
 		int adultsValue = Integer.parseInt(driver.findElement(By.id("fadults")).getAttribute("value"));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 		for (int i=adultsValue; i<Integer.parseInt(adults); i++){
 			driver.findElement(By.cssSelector("#onereturn > div.col-lg-2 > div > div > div > div > div.dropdown-item.adult_qty > div > div > div.qtyInc")).click();
 		};
