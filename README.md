@@ -18,5 +18,5 @@
   3. Buy - 3 scenarios (done)
   4. Header part - 7 scenarios (done) (5 changing the currency and 2 changing the language)
   5. Edit profile - 7 scenarios (done)
-  6. Request cancellation
+  6. Offers - 6 scenarios (done)
   7. Admin functionalities (Add / delete Locations then export CSV and compare the file, change design)
