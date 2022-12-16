@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -63,12 +64,17 @@ public class ProfileSteps {
 	}
 	
 	@Then("^the profile is updated for (.*) with (.*)")
-	public void theProfileIsUpdatedForWith(String field, String value)
-	{
+	public void theProfileIsUpdatedForWith(String field, String value) {
 		Optional<WebElement> success = Optional.of(driver.findElement(By.className("alert-success")));
 		Assert.assertTrue(success.isPresent());
 		
 		String content = driver.findElement(By.cssSelector("input[name="+field+"]")).getAttribute("value");
 		Assert.assertEquals(content, value);
 	}
+	
+	 @After
+     public void closeTheBrowser() {
+//         driver.close();
+//         driver.quit();
+     }
 }
