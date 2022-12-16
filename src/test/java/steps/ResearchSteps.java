@@ -56,11 +56,6 @@ public class ResearchSteps {
 		}
 		driver.findElement(By.className("col-lg-2")).click();
 
-//		Wait until travellers to be clickable
-//		Duration duration = Duration.ofSeconds(20);
-//		WebDriverWait wait = new WebDriverWait(driver, duration); 
-
-//		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#onereturn > div.col-lg-2 > div > div > div > div > div.dropdown-item.adult_qty > div > div > div.qtyInc")));
 		int adultsValue = Integer.parseInt(driver.findElement(By.id("fadults")).getAttribute("value"));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 		for (int i = adultsValue; i < Integer.parseInt(adults); i++) {
@@ -70,7 +65,6 @@ public class ResearchSteps {
 		}
 		;
 
-//		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#onereturn > div.col-lg-2 > div > div > div > div > div.dropdown-item.child_qty > div > div > div.qtyInc")));
 		int childsValue = Integer.parseInt(driver.findElement(By.id("fchilds")).getAttribute("value"));
 		for (int i = childsValue; i < Integer.parseInt(childs); i++) {
 			driver.findElement(By.cssSelector(
@@ -79,7 +73,6 @@ public class ResearchSteps {
 		}
 		;
 
-//		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#onereturn > div.col-lg-2 > div > div > div > div > div.dropdown-item.infant_qty > div > div > div.qtyInc")));
 		int infantsValue = Integer.parseInt(driver.findElement(By.id("finfant")).getAttribute("value"));
 		for (int i = infantsValue; i < Integer.parseInt(infants); i++) {
 			executor.executeScript("arguments[0].click();", driver.findElement(By.cssSelector(
