@@ -41,7 +41,7 @@ public class CompanySteps {
         new Actions(driver)
                 .moveToElement(hoverable)
                 .perform();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         driver.findElement(By.xpath(Page)).click();
 	}
 	
@@ -59,4 +59,9 @@ public class CompanySteps {
 		assertTrue(URL.contains(Media));
 	}
 	
+	@Then("^the page is (.*) page")
+	public void thePageIsTermsOfUsePage(String Page) {
+		String content = driver.findElement(By.className("sidebar-widget")).getAttribute("innerText");
+		Assert.assertTrue(content.contains(Page));
+	}
 }
