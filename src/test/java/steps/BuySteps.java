@@ -1,5 +1,7 @@
 package steps;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -24,11 +26,6 @@ public class BuySteps {
 		driver.manage().window().maximize();
 		driver.navigate().to("https://phptravels.net/");
 		executor = (JavascriptExecutor) driver;
-	}
-
-	@When("the user click cookie button")
-	public void theUserClickCookieButton() {
-		driver.findElement(By.id("cookie_stop")).click();
 	}
 
 	@When("^the user clicks the offer (.*)")
