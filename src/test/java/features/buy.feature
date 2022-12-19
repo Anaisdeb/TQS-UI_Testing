@@ -28,7 +28,7 @@ Then the booking status is <Pending>
 Examples:
 |FirstName|LastName|FirstName1|LastName1|FirstName2|LastName2|FirstName3|LastName3|FirstName4|LastName4|Email           |Phone    |Address  |Offers                                                                                |Pending                                                                                   |
 |Maria    |Fortune |Marc      |Fortune  |Juan      |Fortune  |Luis      |Fortune  |Maria     |Fortune  |mariaF@gmail.com|123456789|barcelona|//*[@id="fadein"]/section[3]/div/div/div[2]/div/div/div/div[1]/div/div[7]/div/div[1]/a|//*[@id="fadein"]/section[1]/div/div/div/div/div[2]/div[3]/div[3]/div/div[1]/form/input[3]|
-|Maria    |Fortune |Marc      |Fortune  |Juan      |Fortune  |Luis      |Fortune  |Maria     |Fortune  |mariaF@gmail.com|123456789|barcelona|//*[@id="fadein"]/section[3]/div/div/div[2]/div/div/div/div[1]/div/div[7]/div/div[1]/a|//*[@id="fadein"]/section[1]/div/div/div/div/div[2]/div[3]/div[3]/div/div[1]/form/input[3]|
+|Maria    |Fortune |Marc      |Fortune  |Juan      |Fortune  |Luis      |Fortune  |Maria     |Fortune  |mariaF@gmail.com|123456789|barcelona|//*[@id="fadein"]/section[3]/div/div/div[2]/div/div/div/div[1]/div/div[6]/div/div[1]/a|//*[@id="fadein"]/section[1]/div/div/div/div/div[2]/div[3]/div[3]/div/div[1]/form/input[3]|
 
 Scenario: Buy a Tour
   
