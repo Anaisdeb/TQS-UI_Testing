@@ -53,7 +53,7 @@ public class LoginSteps {
 
 	@Then("^the user login is (.*)")
 	public void theUserLoginIs(Boolean login) {
-
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 		String content = driver.findElement(By.tagName("body")).getText();
 		Assert.assertEquals(login, content.contains("Dashboard"));
 
