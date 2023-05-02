@@ -13,10 +13,10 @@
  
  ## 7 parts
 
-  1. Login - 6 scenarios (done)
-  2. Research flights - 4 scenarios (done)
-  3. Buy - 3 scenarios (done)
-  4. Header part - 4 scenarios (done)
-  5. Edit profile - 7 scenarios (done)
-  6. Offers - 6 scenarios (done)
-  7. Campany Dropdown - 5 scenario (done)
+  1. Login - 6 scenarios
+  2. Research flights - 4 scenarios
+  3. Buy - 3 scenarios
+  4. Header part - 4 scenarios
+  5. Edit profile - 7 scenarios
+  6. Offers - 6 scenarios
+  7. Campany Dropdown - 5 scenario
